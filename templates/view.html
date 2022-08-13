@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'view.js') }}"></script>
+<script>
+    let id = {{id}}
+    console.log(id)
+</script>
+<!-- Textbook title -->
+<div class="row mt-5">
+    <div class="col-sm-6 col-md-5">
+        <h3>{{title}}</h3>
+    </div>
+</div>
+
+<!-- Authors -->
+<div class="row my-2">
+    <div class="col-sm-auto col-md-auto">
+        <p><span>by </span>
+            {%for i in author %}
+                {% if author|length == 1 %} 
+                    {{i["fl"]}}
+                {% elif i == author|last %}
+                    {{i["fl"]}}
+                {% else  %}       
+                    {{i["fl"]}},
+                {% endif %}  
+            {% endfor %}
+        </p>        
+    </div>
+</div>
+
+<!-- Image and class details -->
+<div class="row">
+    <div class="col-sm-auto col-md-auto mr-5">
+        <img src="{{cover_image}}" alt="textbook cover" width="70%" height="auto">
+    </div>
+    <div class="col-sm-auto ml-5">
+        <div class="row h-100 align-items-center">
+            <div class="col-sm-auto class-label-view">
+                <p>Class ID:</p>
+                <p>Class Name:</p>
+                <p>Required Reading:</p>
+                <p>Professors:</p>
+                <p>Tags:</p>
+                <p>Class Level:</p>
+            </div>
+            <div class="col-sm-auto col-md-auto">
+                <p><a href="/search/{{class_id}}">{{class_id}}</a></p>
+                <p><b>{{class_name}}</b></p>
+                <p><b>{{required_reading}}</b></p>
+                <!-- professors -->
+                <ul class="prof">
+                    {%for i in professors %}
+                        <li><a href="/search/{{i}}">
+                            {%if i == professors|last %}
+                                {{i}}
+                            {% else  %}       
+                                {{i}},
+                            {% endif %}  
+                        </a></li>
+                    {% endfor %}
+                </ul>
+                <!-- tags -->
+                <p>
+                    {%for i in tags %}
+                        {%if i == tags|last %}
+                                {{i}}
+                        {% else  %}       
+                            {{i}},
+                        {% endif %}  
+                    {% endfor %}
+                </p>
+                <!-- class level -->
+                <p>
+                    {%for i in class_level %}
+                        {%if i == class_level|last %}
+                            {{i}}
+                        {% else  %}       
+                            {{i}},
+                        {% endif %}  
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>   
+
+<!-- Rating -->
+<div class="row mt-4">
+    <div class="col-sm-auto class-label-view">
+        Rating:
+    </div>
+    <div class="col-sm-auto">
+       <b>{{rating}}</b>/5
+    </div>
+</div>
+
+<!-- Description -->
+<div class="row mt-4">
+    <div class="col-sm-auto">
+        {{description}}
+    </div>
+</div>
+
+<!-- Textbook bar codes -->
+<div class="row mt-4">
+    <div class="col-sm-auto class-label texbook-codes">
+        <p>ASIN:</p>
+        <p>ISBN-13:</p>
+        <p>ISBN-10:</p>
+    </div>
+    <div class="col-sm-auto small-text">
+        <p>{{asin}}</p>
+        <p>{{isbn_13}}</p>
+        <p>{{isbn_10}}</p>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm-auto">
+        <p><span class="class-label mr-1">Available on: </span><a href="{{link}}"> <span class="small-text">Amazon</span></a></p>
+    </div>
+</div>
+
+<!-- Edit button -->
+<div class="row justify-content-start mb-3">
+    <div class="col-sm-auto">
+        <button type="button" id="edit-btn" class="btn btn-outline-secondary btn-sm">edit</button>
+    </div>
+</div>
+
+{% endblock %}

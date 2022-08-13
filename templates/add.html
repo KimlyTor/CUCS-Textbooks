@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- search.js -->
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+<!-- JQuery validation library -->
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<!-- add.js -->
+<script type="text/javascript" src="{{ url_for('static', filename = 'add.js') }}"></script>
+
+<div id="submit-response">
+
+</div>
+
+<div class="row justify-content-center my-5">
+    <div class="col-sm-auto">
+        <h3>Add Textbook</h3>
+    </div>
+</div>
+
+
+<form id="add-textbook-form" novalidate>
+    <!-- Title -->
+    <div class="form-group row">
+      <label for="title" class="col-sm-2 col-form-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="title" name="title" placeholder="Title" minlength="3" required>
+        <!-- <div class="invalid-feedback">
+            Please enter the textbook's title 
+        </div> -->
+      </div>
+    </div>
+    <!-- Cover Image -->
+    <div class="form-group row">
+        <label for="title" class="col-sm-2 col-form-label">Cover Image URL</label>
+        <div class="col-sm-10">
+          <input type="url" class="form-control" id="cover_image" name="cover_image" placeholder="URL" required>
+          <!-- <div class="invalid-feedback">
+              Please enter a Valid URL for cover image
+          </div> -->
+        </div>
+      </div>
+    <!-- Authors -->
+    <div class="form-group row">
+      <label for="authors" class="col-sm-2 col-form-label">Author(s)</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="authors" name="authors" placeholder="Authors" minlength="3" required>
+        <!-- <div class="invalid-feedback">
+            Please enter the author(s) full name(s) 
+        </div> -->
+      </div>
+    </div>
+    <!-- Rating -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Book Rating</legend>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating1" value="1" required>
+            <label class="form-check-label" for="rating1"> 
+                1
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating2" value="2" required>
+            <label class="form-check-label" for="rating2">
+                2
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating3" value="3" required>
+            <label class="form-check-label" for="rating3">
+                3
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating4" value="4" required>
+            <label class="form-check-label" for="rating4">
+                4
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating5" value="5" required>
+            <label class="form-check-label" for="rating5">
+                5
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Description -->
+    <div class="form-group row">
+        <label for="description" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="description" name="description" placeholder="Description" minlength="20" required></textarea>
+          <!-- <div class="invalid-feedback">
+            Please enter the description in the textarea.
+          </div> -->
+        </div>
+        
+    </div>
+
+    <!-- Class ID -->
+    <div class="form-group row">
+        <label for="class_id" class="col-sm-2 col-form-label">Class ID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="class_id" name="class_id" placeholder="Class ID" minlength="5" required>
+            <!-- <div class="invalid-feedback">
+                Please enter the class ID
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Class Name -->
+    <div class="form-group row">
+        <label for="class_name" class="col-sm-2 col-form-label">Class Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="class_name" name="class_name" placeholder="Class Name" minlength="3" required>
+            <!-- <div class="invalid-feedback">
+                Please enter the class name
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Required Reading -->
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Required Reading</legend>
+          <div class="col-sm-10">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="required_reading" id="required_reading1" value="no" required>
+                    <label class="form-check-label" for="required_reading1">
+                            No
+                    </label>
+                </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="required_reading" id="required_reading2" value="yes" required>
+                    <label class="form-check-label" for="required_reading2">
+                            Yes
+                    </label>
+                </div>
+          </div>
+        </div>
+    </fieldset>
+
+    <!-- Professors -->
+    <div class="form-group row">
+        <label for="class_name" class="col-sm-2 col-form-label">Professor(s)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="professors" name="professors" placeholder="Professor(s)" minlength="3" required>
+            <!-- <div class="invalid-feedback">
+                Please enter the professor(s) full name(s)
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Professors -->
+    <div class="form-group row">
+        <label for="class_name" class="col-sm-2 col-form-label">Tag(s)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter n/a if no tags" minlength="3" required>
+            <!-- <div class="invalid-feedback">
+                Tag is optionals such as java, AI, coms 123
+            </div> -->
+        </div>
+    </div>
+    <div class="row justify-content-center my-5">
+        <div class="col-sm-auto">
+            <button class="btn btn-info submit-btn" id="add-textbook-submit-btn" type="button">Submit</button>
+        </div>
+    </div>
+   
+
+  </form>  
+{% endblock %}

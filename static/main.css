@@ -1,0 +1,148 @@
+/* CSS for welcome.html */
+body{
+    background-color: #f4f7fa;
+    cursor: default;
+}
+.bg-light-blue{
+    background-color: #3b7878;
+}
+
+.white-text{
+    color: #eff3f7;
+}
+
+
+.clickable-div:hover{
+    background-color:  #b7b9bb;
+    /* background-color: #a3e3ec; */
+}
+
+.title{
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: default;
+}
+
+.description-summary{
+    font-size: 1em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    cursor: default;
+     
+}
+
+.class-label{
+    font-style: italic;
+    color: grey;
+    font-size: 0.8em;
+}
+
+/* .cursor-default{
+    cursor: default;
+
+} */
+
+.about-us{
+    text-align: center;
+    margin-top: 5px;
+    color: #eff3f7;
+    
+}
+
+.about-us-row{
+    background-image: url('/static/bg_about_us.png');
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    height: 390px;
+    width: auto;
+    
+}
+
+/* Display result CSS */
+.result-label{
+    color: grey;
+    font-size: 0.8em;
+    
+}
+
+.medium-size-title{
+    font-size: 1.2em;
+}
+
+hr{
+    margin: 50px 0 0 0;
+}
+
+/* view page css */
+.class-label-view{
+    font-style: italic;
+    color: grey;
+    font-size: 0.9em;
+}
+
+.text-book-codes{
+    margin: 0px;
+    padding: 0px;
+}
+
+.small-text{
+    font-size: 0.8em;
+}
+
+.small-text p{
+    margin:  0 0 3px 0;
+    padding: 0px;
+}
+
+.class-label p{
+    margin: 0 0 3px 0;
+    padding: 0px;
+} 
+
+.prof{
+    padding-left: 0;
+    list-style-type: none;
+
+
+}
+
+.prof li{
+    display: inline;
+}
+
+a{
+    color: #3b7878;
+}
+
+
+/* button */
+.btn-info{
+    background-color: #3b7878;
+    border-color: #73dddd;
+}
+
+.btn-info:hover,
+.btn-info:active,
+.btn-info:visited,
+.btn-info:focus{
+    background-color: #509c9c;
+    border-color: #73dddd;
+}
+
+
+.navbar-light .navbar-nav .active>.nav-link{
+    color: #eff3f7;
+    font-weight: bold;
+    /* border: 1px solid #eff3f7;
+    border-radius: 5px; */
+}
+
+div.error-message{
+    color: #ff0000;
+}
+
+.red-border{
+    border: 1px solid #ff0000;
+}

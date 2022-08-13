@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- display matched textbooks (must be the first script for search.js to work properly) -->
+<script type="text/javascript" src="{{ url_for('static', filename = 'display_search_result.js') }}"></script>  
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script> 
+<script>
+    //parse in match_items array of object from the server
+    let match_items = {{match_items|tojson}}
+    console.log(match_items)
+</script>
+
+<div class="row a">
+    <div class="col-sm-auto col-md-auto">
+        <h3 class="mt-5">Search Result for "{{input_string}}"</h3>
+        <p><span class="result-label">Total result(s): </span>{{match_items|length}}</p>
+        <div class="match-item-div">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

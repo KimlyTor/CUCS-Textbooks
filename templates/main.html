@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- display top 3 textbooks (must be the first script for search.js to work properly) -->
+<script type="text/javascript" src="{{ url_for('static', filename = 'main.js') }}"></script> 
+<!-- all html share search.js to handle the search form -->
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script> 
+
+<script>
+    //parse in a dictionary of textbooks from server.py
+    let textbooks = JSON.parse('{{textbooks|tojson}}');
+    console.log(textbooks)
+</script>
+
+<div class="row header-row">
+    <div class="col-sm-auto header-col">
+        <h2 class="most_popular_header my-5">Columbia's CS Text Books of the Year</h2>
+        <div class="row" id="popular-items-row">
+            
+        </div>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+{% block about%}
+    <div role="img" aria-label="green background image for about us section"class="row justify-content-center align-items-center about-us-row">
+        <div class="col-sm-6 about-us-col mr-5">
+            <h5 class="about-us">About Us</h5>
+            <p class="about-us">CUCS helps students at Columbia University find textbooks for their computer science classes. No more looking through the syllabuses and memorizing the titles!</p>
+        </div> 
+
+
+    </div>
+{% endblock %}
